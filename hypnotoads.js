@@ -50,12 +50,20 @@ function draw(){
 
 	// draw christmas tree
 	for(var j=0;j<christmas_tree_number;j++){
-	  ctx.fillStyle = "rgba(255,255,0,0.9)";
+	  ctx.strokeStyle = "rgba(44,132,50,1.0)";
 	  christmas_tree[j].timer += 0.02;
-	  ctx.moveTo(christmas_tree[j].x,christmas_tree[j].y);
-	  ctx.arc(christmas_tree[j].x,christmas_tree[j].y,christmas_tree[j].mirking*(1.1+Math.cos(christmas_tree[j].timer)),0,Math.PI*2,true);	
+	  ctx.quadraticCurveTo(0.5* c.width, christmas_tree[j].y,christmas_tree[j].x,christmas_tree[j].y);
 	}
 	//draw snowflakes
+	ctx.moveTo(christmas_tree[0].x,christmas_tree[0].y)
+	ctx.stroke();
+	ctx.beginPath();
+	for(var j=0;j<christmas_tree_number;j++){
+	  ctx.fillStyle = "rgba(255,255,50,1.0)";
+	  christmas_tree[j].timer += 0.02;
+	  ctx.moveTo(0.5* c.width, christmas_tree[j].y,christmas_tree[j].x,christmas_tree[j].y);
+	  ctx.arc(christmas_tree[j].x,christmas_tree[j].y,christmas_tree[j].mirking*(1.1+Math.cos(christmas_tree[j].timer)),0,Math.PI*2,true);	
+	}
 	ctx.fill();
 	ctx.beginPath();
 	ctx.fillStyle = "rgba(255,255,255,1.0)";
