@@ -14,7 +14,8 @@ for(var i=0; i< snowflake_number; i++){
   	x:Math.random()*c.width,
   	y:Math.random()*c.height,
   	wiggle: 3+Math.random()*6,
-  	angle: Math.random()*Math.PI*2
+  	angle: Math.random()*Math.PI*2,
+  	tangled: 0
   })
 }
 
@@ -26,7 +27,7 @@ for(var i=0; i < christmas_tree_number; i++)
 {
 	var position = 0.4*i; 
 	christmas_tree.push({
-		y: 30.0 + christmas_tree_scale*position,
+		y: 0.4*c.height + christmas_tree_scale*position,
 		x: 0.5* c.width + 0.5*christmas_tree_scale*position*Math.cos(position)
 	})
 }
@@ -47,7 +48,7 @@ function draw(){
 
 	// draw christmas tree
 	for(var j=0;j<christmas_tree_number;j++){
-	  ctx.fillStyle = "rgba(255,150,150,0.9)";
+	  ctx.fillStyle = "rgba(255,255,0,0.9)";
 	  ctx.moveTo(christmas_tree[j].x,christmas_tree[j].y);
 	  ctx.arc(christmas_tree[j].x,christmas_tree[j].y,5,0,Math.PI*2,true);	
 	}
@@ -56,8 +57,10 @@ function draw(){
 	ctx.beginPath();
 	ctx.fillStyle = "rgba(255,255,255,1.0)";
 	for(var j=0;j<snowflake_number; j++){
+		if (snowflakes[j].tangled==0){
 		snowflakes[j].y +=0.8;
 		snowflakes[j].angle += 0.02;
+	    }
 
 		var p = snowflakes[j];
 		ctx.moveTo(p.x,p.y);
