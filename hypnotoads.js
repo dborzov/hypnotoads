@@ -18,6 +18,19 @@ for(var i=0; i< snowflake_number; i++){
   })
 }
 
+var christmas_tree_number = 180;
+var christmas_tree_scale = 10;
+var christmas_tree = [];
+
+for(var i=0; i < christmas_tree_number; i++)
+{
+	var position = 0.4*i; 
+	christmas_tree.push({
+		y: 30.0 + christmas_tree_scale*position,
+		x: 0.5* c.width + 0.5*christmas_tree_scale*position*Math.cos(position)
+	})
+}
+
 // a function to update the scene
 function draw(){
 	i++;
@@ -31,6 +44,17 @@ function draw(){
 	ctx.fillText('С новым годом!',0.1*c.width, 0.1*c.height);
 	// snowflakes
 	ctx.beginPath();
+
+	// draw christmas tree
+	for(var j=0;j<christmas_tree_number;j++){
+	  ctx.fillStyle = "rgba(255,150,150,0.9)";
+	  ctx.moveTo(christmas_tree[j].x,christmas_tree[j].y);
+	  ctx.arc(christmas_tree[j].x,christmas_tree[j].y,5,0,Math.PI*2,true);	
+	}
+	//draw snowflakes
+	ctx.fill();
+	ctx.beginPath();
+	ctx.fillStyle = "rgba(255,255,255,1.0)";
 	for(var j=0;j<snowflake_number; j++){
 		snowflakes[j].y +=0.8;
 		snowflakes[j].angle += 0.02;
