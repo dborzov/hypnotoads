@@ -25,10 +25,12 @@ var christmas_tree = [];
 
 for(var i=0; i < christmas_tree_number; i++)
 {
-	var position = 0.4*i; 
+	var position = 0.2*i; 
 	christmas_tree.push({
 		y: 0.4*c.height + christmas_tree_scale*position,
-		x: 0.5* c.width + 0.5*christmas_tree_scale*position*Math.cos(position)
+		x: 0.5* c.width + 0.5*christmas_tree_scale*position*Math.cos(position),
+		mirking: 2+Math.random()*2.,
+		timer: Math.random()*Math.PI*2
 	})
 }
 
@@ -49,8 +51,9 @@ function draw(){
 	// draw christmas tree
 	for(var j=0;j<christmas_tree_number;j++){
 	  ctx.fillStyle = "rgba(255,255,0,0.9)";
+	  christmas_tree[j].timer += 0.02;
 	  ctx.moveTo(christmas_tree[j].x,christmas_tree[j].y);
-	  ctx.arc(christmas_tree[j].x,christmas_tree[j].y,5,0,Math.PI*2,true);	
+	  ctx.arc(christmas_tree[j].x,christmas_tree[j].y,christmas_tree[j].mirking*(1.1+Math.cos(christmas_tree[j].timer)),0,Math.PI*2,true);	
 	}
 	//draw snowflakes
 	ctx.fill();
