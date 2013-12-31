@@ -6,13 +6,15 @@ c.width = 0.95*window.innerWidth;
 
 var ctx = c.getContext("2d");
 
-var snowflake_number = 20;
+var snowflake_number = 50;
 var snowflakes = [];
 
 for(var i=0; i< snowflake_number; i++){
   snowflakes.push({
   	x:Math.random()*c.width,
-  	y:Math.random()*c.height
+  	y:Math.random()*c.height,
+  	wiggle: 3+Math.random()*6,
+  	angle: Math.random()*Math.PI*2
   })
 }
 
@@ -30,10 +32,12 @@ function draw(){
 	// snowflakes
 	ctx.beginPath();
 	for(var j=0;j<snowflake_number; j++){
-		snowflakes[j].y++;
+		snowflakes[j].y +=0.8;
+		snowflakes[j].angle += 0.02;
+
 		var p = snowflakes[j];
 		ctx.moveTo(p.x,p.y);
-		ctx.arc(p.x,p.y,3,0,Math.PI*2,true);
+		ctx.arc(p.x + p.wiggle*Math.cos(p.angle),p.y  + p.wiggle*Math.sin(p.angle),3,0,Math.PI*2,true);
 	if (p.y > c.height) {
 		snowflakes[j].y=0; 
 	}	
