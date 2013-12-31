@@ -26,16 +26,21 @@ function draw(){
 	ctx.fillRect(0, 0, c.width, c.height);
 	//caption text
 	ctx.fillStyle = "rgba(255,255,255,0.9)";
-	ctx.fillText('EVERYBODY LOVES HYPNOTOAD',0.5*c.width, i);
+	ctx.fillText('С новым годом!',0.1*c.width, 0.1*c.height);
 	// snowflakes
 	ctx.beginPath();
 	for(var j=0;j<snowflake_number; j++){
+		snowflakes[j].y++;
 		var p = snowflakes[j];
 		ctx.moveTo(p.x,p.y);
-		ctx.arc(p.x,p.y,15,0,Math.PI*2,true);
-	}
+		ctx.arc(p.x,p.y,3,0,Math.PI*2,true);
+	if (p.y > c.height) {
+		snowflakes[j].y=0; 
+	}	
+    }
 	ctx.fill()
 }
 
 var i = 0;
+console.log("Happy new year to you too, my dear console dwellers! :)")
 setInterval(draw,33);
