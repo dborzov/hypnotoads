@@ -86,7 +86,7 @@ function draw(){
 	ctx.font = 'italic 50pt Calibri';
 	ctx.fillText('Happy holidays!',0.5*c.width, 0.1*c.height);
 	ctx.font = 'italic 30pt Calibri';
-	ctx.fillText('and here is your fucking owl',0.5*c.width, 0.1*c.height + 60);
+	ctx.fillText('hey, look, an owl',0.5*c.width, 0.1*c.height + 60);
    }    
 
 	//ctx.fillStyle = "rgba(255,255,255,1.0)";
