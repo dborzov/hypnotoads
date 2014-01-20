@@ -74,7 +74,7 @@ function draw(){
 	ctx.textAlign = 'center'
 	ctx.font = 'italic 20pt Calibri';
 	if (progress_counter<70) {
-	ctx.fillText('Hey, Shopify, the holidays are upon us!',0.5*c.width, 0.1*c.height);
+	ctx.fillText('The holidays are upon us!',0.5*c.width, 0.1*c.height);
 	ctx.fillText(' Help Father Frost decorate the Christmas tree with snowflakes and near the magic night!',0.5*c.width, 0.1*c.height+30);
 	ctx.fillText('(use mouse to direct the snowflakes)',0.5*c.width, 0.1*c.height+60);
     } else if (progress_counter<90){
