@@ -74,11 +74,11 @@ function draw(){
 	ctx.textAlign = 'center'
 	ctx.font = 'italic 20pt Calibri';
 	if (progress_counter<70) {
-	ctx.fillText('The holidays are upon us!',0.5*c.width, 0.1*c.height);
-	ctx.fillText(' Help Father Frost decorate the Christmas tree with snowflakes and near the magic night!',0.5*c.width, 0.1*c.height+30);
-	ctx.fillText('(use mouse to direct the snowflakes)',0.5*c.width, 0.1*c.height+60);
+	ctx.fillText('добро пожаловать на курс',0.5*c.width, 0.1*c.height);
+	ctx.fillText('"Пишем Мобильные Приложения!"',0.5*c.width, 0.1*c.height+30);
+	ctx.fillText('(мышкой можно вешать снежинки на дерево)',0.5*c.width, 0.1*c.height+60);
     } else if (progress_counter<90){
-	ctx.fillText('Hey, it is working! It is getting darker!',0.5*c.width, 0.1*c.height);
+	ctx.fillText('Уууу темнеет наступает ночь',0.5*c.width, 0.1*c.height);
     } 
 
     if (progress_counter>100) {
